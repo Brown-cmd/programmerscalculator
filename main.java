@@ -63,28 +63,50 @@ public class main extends Application {
                 Display.appendText("0");
             });
         Button btncl = new Button("C");
-            btn7.setOnAction(e -> {
-                Display.appendText("7");
+            btncl.setOnAction(e -> {
+                Display.clear();
             });
         Button btneq = new Button("=");
-            btn7.setOnAction(e -> {
-                Display.appendText("7");
+            btneq.setOnAction(e -> {
+                // Evaluation logic to be implemented
+                double num2 = Double.parseDouble(Display.getText());
+                Operation op = null;
+
+                switch (Operation) {
+                    case "+":
+                        op = new BinaryAddition();
+                        break;
+                    case "-":
+                        op = new BinarySubtraction();
+                        break;
+                    case "X":
+                        op = new BinaryMultiplication();
+                        break;
+                    case "÷":
+                        op = new BinaryDivision();
+                        break;
+                }
+
+                if (op != null) {
+                    double result = op.calculate(num1, num2);
+                    Display.setText(String.valueOf(result));
+                }
             });
-        Button btndiv = new Button("/");
-            btn7.setOnAction(e -> {
-                Display.appendText("7");
+        Button btndiv = new Button("÷");
+            btndiv.setOnAction(e -> {
+                Display.appendText("÷");
             });
         Button btnprod = new Button("X");
-            btn7.setOnAction(e -> {
-                Display.appendText("7");
+            btnprod.setOnAction(e -> {
+                Display.appendText("X");
             });
         Button btnadd = new Button("+");
-            btn7.setOnAction(e -> {
-                Display.appendText("7");
+            btnadd.setOnAction(e -> {
+                Display.appendText("+");
             });
         Button btnsub = new Button("-");
-            btn7.setOnAction(e -> {
-                Display.appendText("7");
+            btnsub.setOnAction(e -> {
+                Display.appendText("-");
             });
 
         grid.add(btn7, 0, 0);
